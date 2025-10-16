@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Anthony — Data Analyst & Consultant</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Portfolio Data Analyst & Consultant — dashboards Tableau, pipelines Python, Streamlit et cas métiers.">
+  <meta name="author" content="Anthony">
+  <!-- OpenGraph -->
+  <meta property="og:title" content="Anthony — Data Analyst & Consultant">
+  <meta property="og:description" content="Dashboards Tableau, pipelines Python & Streamlit.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://TON-USER.github.io/">
+  <meta property="og:image" content="assets/cover.jpg"><!-- TODO: remplace si tu as une image -->
+  <link rel="icon" href="assets/favicon.png"><!-- facultatif -->
+
+  <style>
+    :root{
+      --bg:#0b1016;
+      --surface:#111824;
+      --muted:#8ea1b2;
+      --text:#e8eef5;
+      --brand:#64b5f6;
+      --brand-2:#8bd0ff;
+      --card:#0e151f;
+      --border:#1f2b3a;
+      --success:#7dd3a7;
+      --warning:#f6d365;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+      --radius:14px;
+      --radius-sm:10px;
+      --maxw:1120px;
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#f9fbfe; --surface:#ffffff; --text:#101319; --muted:#556070;
+        --card:#ffffff; --border:#e6ecf3; --shadow:0 8px 24px rgba(16,19,25,.06);
+      }
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background:var(--bg); color:var(--text); line-height:1.6;
+    }
+    a{color:var(--brand); text-decoration:none}
+    a:hover{color:var(--brand-2)}
+    .container{max-width:var(--maxw); margin-inline:auto; padding:0 20px}
+    /* Header */
+    header{
+      position:sticky; top:0; z-index:50; backdrop-filter:saturate(180%) blur(10px);
+      background:color-mix(in srgb, var(--bg) 70%, transparent);
+      border-bottom:1px solid var(--border);
+    }
+    .nav{display:flex; align-items:center; justify-content:space-between; height:64px}
+    .brand{display:flex; gap:10px; align-items:center; font-weight:700; letter-spacing:.3px}
+    .brand .dot{width:10px; height:10px; border-radius:50%; background:linear-gradient(135deg,var(--brand),var(--brand-2))}
+    .links{display:flex; gap:18px}
+    .links a{padding:8px 10px; border-radius:10px}
+    .links a:hover{background:var(--surface)}
+    .burger{display:none}
+    @media (max-width:820px){
+      .links{display:none}
+      .burger{display:block; background:transparent; border:1px solid var(--border); color:var(--text);
+        padding:6px 10px; border-radius:10px}
+      .mobile{display:none; padding:12px 0}
+      .mobile.open{display:block}
+      .mobile a{display:block; padding:10px 0; border-bottom:1px solid var(--border)}
+    }
+    /* Sections */
+    section{padding:72px 0}
+    .hero{
+      padding:88px 0 64px; background: radial-gradient(1200px 600px at 50% -10%, color-mix(in srgb,var(--brand) 16%, transparent), transparent 60%);
+    }
+    .hero .wrap{display:grid; grid-template-columns:1.35fr .65fr; gap:36px; align-items:center}
+    @media (max-width:900px){.hero .wrap{grid-template-columns:1fr}}
+    h1{font-size:clamp(28px,3vw,40px); line-height:1.2; margin:0 0 10px}
+    .kicker{color:var(--muted); font-weight:600; letter-spacing:.12em; text-transform:uppercase; font-size:.85rem}
+    .lead{font-size:clamp(16px,1.4vw,18px); color:var(--muted); margin-top:8px}
+    .cta{display:flex; gap:12px; margin-top:20px; flex-wrap:wrap}
+    .btn{
+      display:inline-flex; align-items:center; gap:10px; padding:12px 16px; border-radius:12px; border:1px solid var(--border);
+      background:var(--surface); color:var(--text); box-shadow:var(--shadow);
+    }
+    .btn.primary{background:linear-gradient(135deg,var(--brand),var(--brand-2)); color:#0d1218; font-weight:700; border:0}
+    .btn.ghost{background:transparent}
+    .card{
+      background:var(--card); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow);
+      padding:18px;
+    }
+    .grid{display:grid; gap:16px}
+    .g-2{grid-template-columns:repeat(2,1fr)}
+    .g-3{grid-template-columns:repeat(3,1fr)}
+    @media (max-width:900px){.g-2,.g-3{grid-template-columns:1fr}}
+
+    /* Project cards */
+    .project{display:grid; gap:16px}
+    .project h3{margin:0 0 6px}
+    .meta{color:var(--muted); font-size:.92rem}
+    .badge{display:inline-block; padding:.25rem .6rem; border:1px solid var(--border); border-radius:999px; color:var(--muted); font-size:.78rem}
+    .stack{display:flex; gap:8px; flex-wrap:wrap; margin-top:10px}
+
+    /* Responsive Tableau iframe */
+    .embed{position:relative; width:100%; padding-top:62%; border-radius:var(--radius-sm); overflow:hidden; border:1px solid var(--border)}
+    .embed iframe{position:absolute; inset:0; width:100%; height:100%; border:0}
+
+    /* Skills */
+    .skills-list{display:flex; flex-wrap:wrap; gap:10px}
+    .chip{padding:.45rem .7rem; border-radius:999px; background:var(--surface); border:1px solid var(--border); font-size:.9rem}
+
+    /* Footer */
+    footer{padding:36px 0; border-top:1px solid var(--border); color:var(--muted); text-align:center}
+    .small{font-size:.9rem}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <div class="brand"><span class="dot" aria-hidden="true"></span> Anthony • Data Analyst</div>
+    <nav class="links" aria-label="Navigation principale">
+      <a href="#projets">Projets</a>
+      <a href="#skills">Compétences</a>
+      <a href="#contact">Contact</a>
+      <a href="https://github.com/TON-USER" target="_blank" rel="noopener">GitHub</a><!-- TODO: ton user -->
+    </nav>
+    <button class="burger" aria-label="Ouvrir le menu" onclick="toggleMenu()">Menu</button>
+  </div>
+  <div class="container mobile" id="mnav" aria-label="Navigation mobile">
+    <a href="#projets" onclick="toggleMenu()">Projets</a>
+    <a href="#skills" onclick="toggleMenu()">Compétences</a>
+    <a href="#contact" onclick="toggleMenu()">Contact</a>
+    <a href="https://github.com/TON-USER" target="_blank" rel="noopener" onclick="toggleMenu()">GitHub</a>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container wrap">
+      <div>
+        <div class="kicker">Consultant & Data Analyst</div>
+        <h1>Je transforme des données en décisions actionnables.</h1>
+        <p class="lead">Dashboards <strong>Tableau</strong>, pipelines <strong>Python</strong>, <strong>Streamlit</strong>, et cadrage métier.
+          Découvrez mes projets clés et ma démarche orientée valeur.</p>
+        <div class="cta">
+          <a class="btn primary" href="#projets">Voir mes projets</a>
+          <a class="btn ghost" href="#contact">Me contacter</a>
+        </div>
+      </div>
+      <div class="card">
+        <strong>En bref</strong>
+        <ul>
+          <li>Storytelling data & visualisation claire</li>
+          <li>Automatisation & réutilisation de fonctions Python</li>
+          <li>Posture consulting : cadrage, priorisation, livraison</li>
+        </ul>
+        <div class="stack">
+          <span class="badge">Tableau</span><span class="badge">Power BI</span><span class="badge">Python</span>
+          <span class="badge">Pandas</span><span class="badge">Streamlit</span><span class="badge">SQL</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJETS -->
+  <section id="projets">
+    <div class="container">
+      <h2>Projets</h2>
+      <div class="grid g-2">
+        <!-- Projet 1 -->
+        <article class="project card">
+          <div>
+            <h3>Dashboard métier — Aeroworld</h3>
+            <p class="meta">Tableau Public • KPI marché aéronautique • Veille & exploration</p>
+          </div>
+          <div class="embed">
+            <!-- TODO: remplace src par le lien partage Tableau (Embed) -->
+            <iframe title="Aeroworld"
+                    src="https://public.tableau.com/views/EXEMPLE_AEROWORLD?:showVizHome=no&:embed=true"
+                    allowfullscreen></iframe>
+          </div>
+          <div class="stack">
+            <span class="badge">Tableau</span><span class="badge">Design KPI</span><span class="badge">Storytelling</span>
+          </div>
+          <p class="small">Objectif : montrer ma capacité à cadrer un besoin métier, définir des indicateurs et restituer l’information de façon exploitable.</p>
+          <div class="cta">
+            <a class="btn" target="_blank" rel="noopener"
+               href="https://public.tableau.com/views/EXEMPLE_AEROWORLD">Ouvrir sur Tableau</a>
+          </div>
+        </article>
+
+        <!-- Projet 2 -->
+        <article class="project card">
+          <div>
+            <h3>Profil Data Analyst — Compétences & expériences</h3>
+            <p class="meta">Tableau Public • Présentation interactive • Sélecteurs & vues dynamiques</p>
+          </div>
+          <div class="embed">
+            <!-- TODO: remplace src par le lien de ton 2e dashboard -->
+            <iframe title="ProfilData"
+                    src="https://public.tableau.com/views/EXEMPLE_PROFIL?:showVizHome=no&:embed=true"
+                    allowfullscreen></iframe>
+          </div>
+          <div class="stack">
+            <span class="badge">Tableau</span><span class="badge">UX</span><span class="badge">Interactivité</span>
+          </div>
+          <p class="small">Objectif : synthétiser mes hard/soft skills, expériences et livrables, avec un angle “consultant”.</p>
+          <div class="cta">
+            <a class="btn" target="_blank" rel="noopener"
+               href="https://public.tableau.com/views/EXEMPLE_PROFIL">Ouvrir sur Tableau</a>
+          </div>
+        </article>
+      </div>
+
+      <!-- Bloc technique Streamlit -->
+      <article class="project card" style="margin-top:18px">
+        <div>
+          <h3>App technique — Pipeline & démo Streamlit</h3>
+          <p class="meta">Python • Streamlit • Fonctions réutilisables • GitHub</p>
+        </div>
+        <p class="small">Démontre la mise en place d’un pipeline (nettoyage, features, visualisation) et l’industrialisation de fonctions réutilisables.</p>
+        <div class="cta">
+          <!-- TODO: remplace les liens -->
+          <a class="btn primary" target="_blank" rel="noopener" href="https://TON-APP-STREAMLIT.streamlit.app">Ouvrir la démo</a>
+          <a class="btn" target="_blank" rel="noopener" href="https://github.com/TON-USER/TON-REPO">Voir le code sur GitHub</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- COMPÉTENCES -->
+  <section id="skills">
+    <div class="container">
+      <h2>Compétences</h2>
+      <div class="grid g-3">
+        <div class="card">
+          <strong>Data & outils</strong>
+          <div class="skills-list" style="margin-top:10px">
+            <span class="chip">Tableau</span><span class="chip">Power BI</span><span class="chip">Python</span>
+            <span class="chip">Pandas</span><span class="chip">NumPy</span><span class="chip">Matplotlib</span>
+            <span class="chip">Scikit-learn</span><span class="chip">SQL</span><span class="chip">Git/GitHub</span>
+          </div>
+        </div>
+        <div class="card">
+          <strong>Soft skills</strong>
+          <ul style="margin:10px 0 0 18px">
+            <li>Esprit méthodique & adaptatif</li>
+            <li>Esprit d’analyse & synthèse</li>
+            <li>Leadership & consulting</li>
+            <li>Collaboration & coordination</li>
+          </ul>
+        </div>
+        <div class="card">
+          <strong>Atouts</strong>
+          <ul style="margin:10px 0 0 18px">
+            <li>Design clair, lisible et actionnable</li>
+            <li>Fonctions Python réutilisables, pipelines</li>
+            <li>Posture orientée valeur et délais</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <h2>Contact</h2>
+      <div class="card">
+        <p class="small">Intéressé pour échanger ? Je réponds rapidement.</p>
+        <!-- TODO: ton email -->
+        <a class="btn primary" href="mailto:ton.email@exemple.com">Me contacter</a>
+        <!-- facultatif : LinkedIn -->
+        <a class="btn" target="_blank" rel="noopener" href="https://www.linkedin.com/in/TON-LINKEDIN/">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container small">© <span id="y"></span> Anthony — Data Analyst. Fait avec ♥️ et un peu de café.</div>
+</footer>
+
+<script>
+  const y=document.getElementById('y'); y.textContent=new Date().getFullYear();
+  function toggleMenu(){ document.getElementById('mnav').classList.toggle('open'); }
+</script>
+</body>
+</html>
