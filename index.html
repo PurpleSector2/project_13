@@ -126,12 +126,6 @@
     </nav>
     <button class="burger" aria-label="Ouvrir le menu" onclick="toggleMenu()">Menu</button>
   </div>
-  <div class="container mobile" id="mnav" aria-label="Navigation mobile">
-    <a href="#projets" onclick="toggleMenu()">Projets</a>
-    <a href="#skills" onclick="toggleMenu()">Compétences</a>
-    <a href="#contact" onclick="toggleMenu()">Contact</a>
-    <a href="https://github.com/TON-USER" target="_blank" rel="noopener" onclick="toggleMenu()">GitHub</a>
-  </div>
 </header>
 
 <main>
@@ -141,9 +135,8 @@
     <div class="container wrap">
       <div>
         <div class="kicker">Consultant & Data Analyst</div>
-        <h1>Je transforme des données en décisions actionnables.</h1>
-        <p class="lead">Dashboards <strong>Tableau</strong>, pipelines <strong>Python</strong>, <strong>Streamlit</strong>, et cadrage métier.
-          Découvrez mes projets clés et ma démarche orientée valeur.</p>
+        <h1>J’analyse, structure et valorise les données pour orienter les décision stratégiques.</h1>
+        <p class="lead">De la visualisation sous <strong>Tableau<strong> au cadrage de projet, j’accompagne les entreprises dans la mise en valeur de leurs données pour faciliter le pilotage et la prise de décision.</p>
         <div class="cta">
           <a class="btn primary" href="#projets">Voir mes projets</a>
           <a class="btn ghost" href="#contact">Me contacter</a>
@@ -152,13 +145,13 @@
       <div class="card">
         <strong>En bref</strong>
         <ul>
-          <li>Storytelling data & visualisation claire</li>
-          <li>Automatisation & réutilisation de fonctions Python</li>
-          <li>Posture consulting : cadrage, priorisation, livraison</li>
+          <li>Data storytelling & visualisation design </li>
+          <li>Conception et modélisation des datasets /li>
+          <li>Pilotage de projet data </li>
         </ul>
         <div class="stack">
-          <span class="badge">Tableau</span><span class="badge">Power BI</span><span class="badge">Python</span>
-          <span class="badge">Pandas</span><span class="badge">Streamlit</span><span class="badge">SQL</span>
+          <span class="badge">Tableau</span><span class="badge">Power BI</span><span class="badge">ETL / Data Prep</span>
+          <span class="badge">Pédagogie data & adoption utilisateur</span><span class="badge">Project Management </span><span class="badge">Agile / Scrum </span>
         </div>
       </div>
     </div>
@@ -217,15 +210,33 @@
       <!-- Bloc technique Streamlit -->
       <article class="project card" style="margin-top:18px">
         <div>
-          <h3>App technique — Pipeline & démo Streamlit</h3>
-          <p class="meta">Python • Streamlit • Fonctions réutilisables • GitHub</p>
-        </div>
-        <p class="small">Démontre la mise en place d’un pipeline (nettoyage, features, visualisation) et l’industrialisation de fonctions réutilisables.</p>
-        <div class="cta">
-          <!-- TODO: remplace les liens -->
-          <a class="btn primary" target="_blank" rel="noopener" href="https://TON-APP-STREAMLIT.streamlit.app">Ouvrir la démo</a>
-          <a class="btn" target="_blank" rel="noopener" href="https://github.com/TON-USER/TON-REPO">Voir le code sur GitHub</a>
-        </div>
+        <div class="project-card">
+  <h3>Présentation & livrables — Projet Data</h3>
+  <p class="tags">
+    Loom • PDF • Documentation • Livrables
+  </p>
+
+  <p>
+    Présentation du projet à travers une vidéo Loom, un support PDF de maintenance, 
+    et l’ensemble des livrables de préparation.
+  </p>
+
+  <!-- Section vidéo -->
+  <div class="video-container">
+    <iframe src="https://www.loom.com/embed/TON-LIEN-VIDEO" 
+            frameborder="0" allowfullscreen>
+    </iframe>
+  </div>
+
+  <!-- Boutons -->
+  <div class="buttons">
+    <a href="https://github.com/TON-USER/ton-projet/video.pdf" 
+       class="btn primary" target="_blank">📄 Ouvrir le support PDF</a>
+
+    <a href="https://github.com/TON-USER/ton-projet/releases/latest" 
+       class="btn secondary" target="_blank">📦 Télécharger les livrables</a>
+  </div>
+</div>
       </article>
     </div>
   </section>
@@ -238,26 +249,28 @@
         <div class="card">
           <strong>Data & outils</strong>
           <div class="skills-list" style="margin-top:10px">
-            <span class="chip">Tableau</span><span class="chip">Power BI</span><span class="chip">Python</span>
-            <span class="chip">Pandas</span><span class="chip">NumPy</span><span class="chip">Matplotlib</span>
-            <span class="chip">Scikit-learn</span><span class="chip">SQL</span><span class="chip">Git/GitHub</span>
+            <span class="chip">Tableau</span><span class="chip">Power BI</span><span class="chip">Python (Librairies Data Science)</span>
+            <span class="chip">Streamlit</span><span class="chip">KNIME</span><span class="chip">SQliteStudio</span>
+            <span class="chip">Notion</span><span class="chip">Python (Librairies Machine learning)</span><span class="chip">Git/GitHub</span>
           </div>
         </div>
         <div class="card">
           <strong>Soft skills</strong>
           <ul style="margin:10px 0 0 18px">
-            <li>Esprit méthodique & adaptatif</li>
-            <li>Esprit d’analyse & synthèse</li>
-            <li>Leadership & consulting</li>
-            <li>Collaboration & coordination</li>
+            <li><i class="fa-solid fa-brain"></i> Esprit méthodique & adaptatif</li>
+            <li><i class="fa-solid fa-lightbulb"></i> Esprit d’analyse & synthèse</li>
+            <li><i class="fa-solid fa-user-tie"></i> Leadership & consulting</li>
+            <li><i class="fa-solid fa-people-group"></i> Collaboration & coordination</li>
           </ul>
         </div>
         <div class="card">
           <strong>Atouts</strong>
           <ul style="margin:10px 0 0 18px">
-            <li>Design clair, lisible et actionnable</li>
-            <li>Fonctions Python réutilisables, pipelines</li>
-            <li>Posture orientée valeur et délais</li>
+            <li>Pilotage projet data : cadrage, priorisation, livraison</li>
+            <li>Structuration de pipelines analytiques réutilisables</li>
+            <li>Nettoyage et transformation automatisée des données (ETL)</li>
+            <li>Data design et storytelling centrés sur la décision</li>
+            <li>Accompagnement des utilisateurs : vulgarisation et adoption</li>
           </ul>
         </div>
       </div>
