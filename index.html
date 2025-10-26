@@ -154,6 +154,48 @@
     .skills-list{display:flex; flex-wrap:wrap; gap:10px}
     .chip{padding:.45rem .7rem; border-radius:999px; background:var(--surface); border:1px solid var(--border); font-size:.9rem}
 
+    /* Réduction des espaces pour les chips */
+    .skills-list.compact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 10px;
+      justify-content: flex-start;
+    }
+
+    /* Listes avec icônes */
+    .icon-list {
+      list-style: none;
+      padding: 0;
+      margin: 12px 0 0;
+    }
+
+    .icon-list li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+    }
+
+    /* Liste sur une seule ligne */
+    .icon-list.inline {
+      flex-wrap: wrap;
+      display: flex;
+      gap: 12px 18px;
+    }
+
+    .icon-list.inline li {
+      margin: 0;
+      white-space: nowrap;
+    }
+
+    /* Icônes */
+    .icon-list i {
+      color: var(--brand);
+      min-width: 16px;
+      text-align: center;
+    }
+
     /* Footer */
     footer{padding:36px 0; border-top:1px solid var(--border); color:var(--muted); text-align:center}
     .small{font-size:.9rem}
@@ -274,12 +316,10 @@
       <article class="project card">
         <h3>Présentation & Livrables — Projet Data</h3>
         <p class="meta">Loom • PDF • Documentation • Livrables</p>
-
         <p>
-          Présentation du projet à travers une vidéo Loom, un support PDF de maintenance,
+          Présentation du dashboard de veille à travers une vidéo Loom, un support PDF de maintenance,
           et l’ensemble des livrables de préparation.
         </p>
-
         <!-- Vidéo Loom intégrée -->
         <div class="embed">
           <iframe src="https://www.loom.com/embed/TON-LIEN-VIDEO"
@@ -296,7 +336,7 @@
              target="_blank">🎥 Voir la vidéo Loom</a>
 
           <a href="https://github.com/TON-USER/ton-projet/raw/main/support.pdf"
-             class="btn primary"
+             class="btn secondary"
              target="_blank">📄 Ouvrir le support PDF</a>
 
           <a href="https://github.com/TON-USER/ton-projet/releases/latest"
@@ -312,33 +352,46 @@
     <div class="container">
       <h2>Compétences</h2>
       <div class="grid g-3">
+
+        <!-- Bloc Data & outils -->
         <div class="card">
           <strong>Data & outils</strong>
-          <div class="skills-list" style="margin-top:10px">
-            <span class="chip">Tableau</span><span class="chip">Power BI</span><span class="chip">Python (Librairies Data Science)</span>
-            <span class="chip">Streamlit</span><span class="chip">KNIME</span><span class="chip">SQliteStudio</span>
-            <span class="chip">Notion</span><span class="chip">Python (Librairies Machine learning)</span><span class="chip">Git/GitHub</span>
+          <div class="skills-list compact">
+            <span class="chip">Tableau</span>
+            <span class="chip">Power BI</span>
+            <span class="chip">Python (Librairies Data Science)</span>
+            <span class="chip">Streamlit</span>
+            <span class="chip">KNIME</span>
+            <span class="chip">SQLiteStudio</span>
+            <span class="chip">Notion</span>
+            <span class="chip">Python (Librairies Machine Learning)</span>
+            <span class="chip">Git/GitHub</span>
           </div>
         </div>
+
+        <!-- Bloc Soft Skills -->
         <div class="card">
           <strong>Soft skills</strong>
-          <ul style="margin:10px 0 0 18px">
+          <ul class="icon-list">
             <li><i class="fa-solid fa-brain"></i> Esprit méthodique & adaptatif</li>
-            <li><i class="fa-solid fa-lightbulb"></i> Esprit d’analyse & synthèse</li>
+            <li><i class="fa-solid fa-lightbulb"></i> Esprit d’analyse & de synthèse</li>
             <li><i class="fa-solid fa-user-tie"></i> Leadership & consulting</li>
             <li><i class="fa-solid fa-people-group"></i> Collaboration & coordination</li>
           </ul>
         </div>
+
+        <!-- Bloc Atouts -->
         <div class="card">
           <strong>Atouts</strong>
-          <ul style="margin:10px 0 0 18px">
-            <li>Pilotage projet data : cadrage, priorisation, livraison</li>
-            <li>Structuration de pipelines analytiques réutilisables</li>
-            <li>Nettoyage et transformation automatisée des données (ETL)</li>
-            <li>Data design et storytelling centrés sur la décision</li>
-            <li>Accompagnement des utilisateurs : vulgarisation et adoption</li>
+          <ul class="icon-list inline">
+            <li><i class="fa-solid fa-diagram-project"></i> Pilotage projet data</li>
+            <li><i class="fa-solid fa-gears"></i> Pipelines analytiques réutilisables</li>
+            <li><i class="fa-solid fa-broom"></i> Nettoyage & transformation (ETL)</li>
+            <li><i class="fa-solid fa-chart-line"></i> Data storytelling décisionnel</li>
+            <li><i class="fa-solid fa-users"></i> Accompagnement & adoption</li>
           </ul>
         </div>
+
       </div>
     </div>
   </section>
