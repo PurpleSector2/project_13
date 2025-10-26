@@ -88,6 +88,14 @@
       background:var(--card); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow);
       padding:18px;
     }
+    .brief-list li {
+      font-weight: 400;
+      margin-bottom: 6px;
+    }
+    .brief-list li strong {
+      font-weight: 600;
+      color: var(--text);
+    }
     .grid{display:grid; gap:16px}
     .g-2{grid-template-columns:repeat(2,1fr)}
     .g-3{grid-template-columns:repeat(3,1fr)}
@@ -132,30 +140,47 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="container wrap">
-      <div>
-        <div class="kicker">Consultant & Data Analyst</div>
-        <h1>J’analyse, structure et valorise les données pour orienter les décision stratégiques.</h1>
-        <p class="lead">De la visualisation sous <strong>Tableau<strong> au cadrage de projet, j’accompagne les entreprises dans la mise en valeur de leurs données pour faciliter le pilotage et la prise de décision.</p>
-        <div class="cta">
-          <a class="btn primary" href="#projets">Voir mes projets</a>
-          <a class="btn ghost" href="#contact">Me contacter</a>
-        </div>
-      </div>
-      <div class="card">
-        <strong>En bref</strong>
-        <ul>
-          <li>Data storytelling & visualisation design </li>
-          <li>Conception et modélisation des datasets /li>
-          <li>Pilotage de projet data </li>
-        </ul>
-        <div class="stack">
-          <span class="badge">Tableau</span><span class="badge">Power BI</span><span class="badge">ETL / Data Prep</span>
-          <span class="badge">Pédagogie data & adoption utilisateur</span><span class="badge">Project Management </span><span class="badge">Agile / Scrum </span>
-        </div>
+  <div class="container wrap">
+    
+    <!-- Partie gauche : texte -->
+    <div>
+      <div class="kicker">Consultant & Data Analyst</div>
+
+      <h2>J’analyse, structure et valorise les données pour orienter les décisions stratégiques.</h2>
+
+      <p class="lead">
+        De la visualisation sous <strong>Tableau</strong> au cadrage de projet, 
+        j’accompagne les entreprises dans la valorisation de leurs données 
+        pour faciliter le pilotage et la prise de décision.
+      </p>
+
+      <div class="cta">
+        <a class="btn primary" href="#projets">Voir mes projets</a>
+        <a class="btn ghost" href="#contact">Me contacter</a>
       </div>
     </div>
-  </section>
+
+    <!-- Partie droite : carte "En bref" -->
+    <div class="card">
+      <strong>En bref</strong>
+      <ul class="brief-list">
+        <li><strong>Data storytelling</strong> & visualisation design</li>
+        <li><strong>Conception et modélisation</strong> des datasets</li>
+        <li><strong>Pilotage de projet</strong> data</li>
+      </ul>
+
+      <div class="stack">
+        <span class="badge">Tableau</span>
+        <span class="badge">Power BI</span>
+        <span class="badge">ETL / Data Prep</span>
+        <span class="badge">Pédagogie data & adoption utilisateur</span>
+        <span class="badge">Project Management</span>
+        <span class="badge">Agile / Scrum</span>
+      </div>
+    </div>
+    
+  </div>
+</section>
 
   <!-- PROJETS -->
   <section id="projets">
