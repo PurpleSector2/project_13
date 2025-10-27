@@ -6,16 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Portfolio Data Analyst & Consultant — dashboards Tableau, pipelines Python, Streamlit et cas métiers.">
   <meta name="author" content="Anthony">
-  <!-- OpenGraph -->
   <meta property="og:title" content="Anthony — Data Analyst & Consultant">
   <meta property="og:description" content="Dashboards Tableau, pipelines Python & Streamlit.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://TON-USER.github.io/">
-  <meta property="og:image" content="assets/cover.jpg"><!-- TODO: remplace si tu as une image -->
-  <link rel="icon" href="assets/favicon.png"><!-- facultatif -->
+  <meta property="og:image" content="assets/cover.jpg">
+  <link rel="icon" href="assets/favicon.png">
 
   <style>
-    :root{
+    :root {
       --bg:#0b1016;
       --surface:#111824;
       --muted:#8ea1b2;
@@ -24,36 +23,44 @@
       --brand-2:#8bd0ff;
       --card:#0e151f;
       --border:#1f2b3a;
-      --success:#7dd3a7;
-      --warning:#f6d365;
       --shadow:0 10px 30px rgba(0,0,0,.35);
       --radius:14px;
       --radius-sm:10px;
       --maxw:1120px;
     }
     @media (prefers-color-scheme: light){
-      :root{
-        --bg:#f9fbfe; --surface:#ffffff; --text:#101319; --muted:#556070;
-        --card:#ffffff; --border:#e6ecf3; --shadow:0 8px 24px rgba(16,19,25,.06);
+      :root {
+        --bg:#f9fbfe;
+        --surface:#ffffff;
+        --text:#101319;
+        --muted:#556070;
+        --card:#ffffff;
+        --border:#e6ecf3;
+        --shadow:0 8px 24px rgba(16,19,25,.06);
       }
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
-      margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      background:var(--bg); color:var(--text); line-height:1.6;
+      margin:0;
+      font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
     }
     a{color:var(--brand); text-decoration:none}
     a:hover{color:var(--brand-2)}
     .container{max-width:var(--maxw); margin-inline:auto; padding:0 20px}
-    /* Header */
+
+    /* HEADER */
     header{
-      position:sticky; top:0; z-index:50; backdrop-filter:saturate(180%) blur(10px);
+      position:sticky; top:0; z-index:50;
+      backdrop-filter:saturate(180%) blur(10px);
       background:color-mix(in srgb, var(--bg) 70%, transparent);
       border-bottom:1px solid var(--border);
     }
     .nav{display:flex; align-items:center; justify-content:space-between; height:64px}
-    .brand{display:flex; gap:10px; align-items:center; font-weight:700; letter-spacing:.3px}
+    .brand{display:flex; gap:10px; align-items:center; font-weight:700}
     .brand .dot{width:10px; height:10px; border-radius:50%; background:linear-gradient(135deg,var(--brand),var(--brand-2))}
     .links{display:flex; gap:18px}
     .links a{padding:8px 10px; border-radius:10px}
@@ -63,210 +70,98 @@
       .links{display:none}
       .burger{display:block; background:transparent; border:1px solid var(--border); color:var(--text);
         padding:6px 10px; border-radius:10px}
-      .mobile{display:none; padding:12px 0}
-      .mobile.open{display:block}
-      .mobile a{display:block; padding:10px 0; border-bottom:1px solid var(--border)}
     }
-    /* Sections */
-    section{padding:40px 0}
+
+    /* HERO */
     .hero{
-      padding:88px 0 64px; background: radial-gradient(1200px 600px at 50% -10%, color-mix(in srgb,var(--brand) 16%, transparent), transparent 60%);
+      padding:88px 0 64px;
+      background: radial-gradient(1200px 600px at 50% -10%, color-mix(in srgb,var(--brand) 16%, transparent), transparent 60%);
     }
-    .hero .wrap{display:grid; grid-template-columns:1.35fr .65fr; gap:36px; align-items:center}
+    .hero .wrap{
+      display:grid;
+      grid-template-columns:1.35fr .65fr;
+      gap:36px;
+      align-items:center;
+    }
     @media (max-width:900px){.hero .wrap{grid-template-columns:1fr}}
-    h1{font-size:clamp(28px,3vw,40px); line-height:1.2; margin:0 0 10px}
+    h1,h2,h3,strong{color:var(--text)}
+    h2{margin-bottom:12px}
     .kicker{color:var(--muted); font-weight:600; letter-spacing:.12em; text-transform:uppercase; font-size:.85rem}
-    .lead{font-size:clamp(16px,1.4vw,18px); color:var(--muted); margin-top:8px}
+    .lead{font-size:1rem; color:var(--muted); margin-top:8px}
     .cta{display:flex; gap:12px; margin-top:20px; flex-wrap:wrap}
     .btn{
-      display:inline-flex; align-items:center; gap:10px; padding:12px 16px; border-radius:12px; border:1px solid var(--border);
+      display:inline-flex; align-items:center; gap:10px; padding:12px 16px;
+      border-radius:12px; border:1px solid var(--border);
       background:var(--surface); color:var(--text); box-shadow:var(--shadow);
+      transition:transform .15s ease, box-shadow .15s ease;
     }
+    .btn:hover{transform:translateY(-2px); box-shadow:0 6px 16px rgba(0,0,0,0.15)}
     .btn.primary{background:linear-gradient(135deg,var(--brand),var(--brand-2)); color:#0d1218; font-weight:700; border:0}
-    .btn.ghost{background:transparent}
+    .btn.secondary{background:transparent; color:var(--brand); border:1px solid var(--brand)}
+
+    /* CARTES */
     .card{
-      background:var(--card); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow);
-      padding:18px;
-
-    .brief-list {
-      list-style: none;   
-      padding-left: 0; 
-      margin: 0;          
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:20px;
+      transition:transform 0.25s ease, box-shadow 0.25s ease;
     }
-    .brief-list li strong {
-      font-weight: 600;
-      color: var(--text);
-    }
-    .grid {
-      display: grid;
-      gap: 20px;
-    }
+    .card:hover{transform:translateY(-3px); box-shadow:0 10px 20px rgba(0,0,0,0.1)}
 
-    .g-3 {
-      grid-template-columns: repeat(3, 1fr); /* 3 colonnes */
+    /* GRILLES */
+    .grid{display:grid; gap:28px}
+    .g-2{grid-template-columns:repeat(2,1fr); align-items:start}
+    .g-3{grid-template-columns:repeat(3,1fr); align-items:start}
+    @media(max-width:1100px){.g-2,.g-3{grid-template-columns:1fr}}
+
+    /* IMAGES DASHBOARD */
+    .dashboard-preview{
+      border-radius:var(--radius-sm);
+      overflow:hidden;
+      border:1px solid var(--border);
+      box-shadow:var(--shadow);
     }
-
-    @media (max-width: 1000px) {
-      .g-3 {
-        grid-template-columns: 1fr; /* empilé sur mobile */
-      }
-    }
-
-    /* Project cards */
-    .project{display:grid; gap:16px}
-    .project h3{margin:0 0 6px}
-    .meta{color:var(--muted); font-size:.92rem}
-    .badge{display:inline-block; padding:.25rem .6rem; border:1px solid var(--border); border-radius:999px; color:var(--muted); font-size:.78rem}
-    .stack{display:flex; gap:8px; flex-wrap:wrap; margin-top:10px}
-
-    /* Responsive Tableau iframe */
-    .embed{position:relative; width:100%; padding-top:62%; border-radius:var(--radius-sm); overflow:hidden; border:1px solid var(--border)}
-    .embed iframe{position:absolute; inset:0; width:100%; height:100%; border:0}
-    .dashboard-preview {
-      border-radius: var(--radius-sm);
-      overflow: hidden;
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    .dashboard-img{
+      width:100%;
+      height:360px;
+      object-fit:cover;
+      border-radius:10px;
+      display:block;
     }
 
-    .dashboard-preview {
-      border-radius: var(--radius-sm);
-      overflow: hidden;
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-      max-height: 460px; /* facultatif : ajuste selon ton image */
-    }
-
-    .dashboard-img {
-      width: 90%;              /* réduit légèrement la taille */
-      max-width: 800px;        /* limite la largeur max */
-      height: auto;            /* conserve le bon ratio */
-      border-radius: 12px;     /* arrondi doux, optionnel */
-      display: block;
-      margin: 0 auto;          /* centre l’image dans la carte */
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* léger relief */
-    }
-    .buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 20px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 12px 16px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      font-weight: 600;
-      background: var(--surface);
-      color: var(--text);
-      box-shadow: var(--shadow);
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-    }
-
-    .btn.primary {
-      background: linear-gradient(135deg, var(--brand), var(--brand-2));
-      color: #0d1218;
-      font-weight: 700;
-      border: none;
-    }
-
-    .btn.secondary {
-      background: transparent;
-      color: var(--brand);
-      border: 1px solid var(--brand);
-    }
-
-    /* Skills */
+    /* SKILLS */
     .skills-list{display:flex; flex-wrap:wrap; gap:10px}
-    .chip{padding:.45rem .7rem; border-radius:999px; background:var(--surface); border:1px solid var(--border); font-size:.9rem}
-
-    .chip {
-      padding: .45rem .7rem;
-      border-radius: 999px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      font-size: .9rem;
-      transition: all 0.25s ease;
-      cursor: default;
+    .chip{
+      padding:.45rem .7rem; border-radius:999px;
+      background:var(--surface); border:1px solid var(--border);
+      font-size:.9rem; transition:all .25s ease;
     }
+    .chip:hover{transform:translateY(-2px); box-shadow:0 2px 10px rgba(0,0,0,0.1)}
+    .skills-list.compact{gap:8px 10px}
+    .icon-list{list-style:none; padding:0; margin:12px 0 0}
+    .icon-list li{display:flex; align-items:center; gap:8px; margin-bottom:8px; font-size:.95rem}
+    .icon-list.inline{display:flex; flex-wrap:wrap; gap:12px 18px}
+    .icon-list.inline li{margin:0; white-space:nowrap}
 
-    /* Effet subtil au survol */
-    .chip:hover {
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      transform: translateY(-2px);
-      transition: all 0.25s ease;
-    }
-
-    /* Réduction des espaces pour les chips */
-    .skills-list.compact {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px 10px;
-      justify-content: flex-start;
-    }
-
-    /* Listes avec icônes */
-    .icon-list {
-      list-style: none;
-      padding: 0;
-      margin: 12px 0 0;
-    }
-
-    .icon-list li {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 8px;
-      font-size: 0.95rem;
-    }
-
-    /* Liste sur une seule ligne */
-    .icon-list.inline {
-      flex-wrap: wrap;
-      display: flex;
-      gap: 12px 18px;
-    }
-
-    .icon-list.inline li {
-      margin: 0;
-      white-space: nowrap;
-    }
-
-    /* Icônes */
-    .icon-list i {
-      color: var(--brand);
-      min-width: 16px;
-      text-align: center;
-    }
-
-    /* Footer */
+    /* FOOTER */
     footer{padding:36px 0; border-top:1px solid var(--border); color:var(--muted); text-align:center}
     .small{font-size:.9rem}
   </style>
 </head>
-<body>
 
+<body>
 <header>
   <div class="container nav">
-    <div class="brand"><span class="dot" aria-hidden="true"></span> Anthony • Data Analyst</div>
-    <nav class="links" aria-label="Navigation principale">
+    <div class="brand"><span class="dot"></span> Anthony • Data Analyst</div>
+    <nav class="links">
       <a href="#projets">Projets</a>
       <a href="#skills">Compétences</a>
       <a href="#contact">Contact</a>
-      <a href="https://github.com/PurpleSector2/project_13.git" target="_blank" rel="noopener">GitHub</a><!-- TODO: ton user -->
+      <a href="https://github.com/PurpleSector2/project_13" target="_blank">GitHub</a>
     </nav>
-    <button class="burger" aria-label="Ouvrir le menu" onclick="toggleMenu()">Menu</button>
+    <button class="burger" onclick="toggleMenu()">Menu</button>
   </div>
 </header>
 
@@ -274,212 +169,131 @@
 
   <!-- HERO -->
   <section class="hero">
-  <div class="container wrap">
-    
-    <!-- Partie gauche : texte -->
-    <div>
-      <div class="kicker">Consultant & Data Analyst</div>
+    <div class="container wrap">
+      <div>
+        <div class="kicker">Consultant & Data Analyst</div>
+        <h2>J’analyse, structure et valorise les données pour orienter les décisions stratégiques.</h2>
+        <p class="lead">
+          De la visualisation sous <strong>Tableau</strong> au cadrage de projet,
+          j’accompagne les entreprises dans la valorisation de leurs données
+          pour faciliter le pilotage et la prise de décision.
+        </p>
+        <div class="cta">
+          <a class="btn primary" href="#projets">Voir mes projets</a>
+          <a class="btn ghost" href="#contact">Me contacter</a>
+        </div>
+      </div>
 
-      <h2>J’analyse, structure et valorise les données pour orienter les décisions stratégiques.</h2>
-
-      <p class="lead">
-        De la visualisation sous <strong>Tableau</strong> au cadrage de projet, 
-        j’accompagne les entreprises dans la valorisation de leurs données 
-        pour faciliter le pilotage et la prise de décision.
-      </p>
-
-      <div class="cta">
-        <a class="btn primary" href="#projets">Voir mes projets</a>
-        <a class="btn ghost" href="#contact">Me contacter</a>
+      <div class="card">
+        <strong>En bref</strong>
+        <ul class="brief-list">
+          <li><strong>Data storytelling</strong> & visualisation design</li>
+          <li><strong>Conception et modélisation</strong> des datasets</li>
+          <li><strong>Pilotage de projet</strong> data</li>
+        </ul>
+        <div class="stack">
+          <span class="chip">Tableau</span>
+          <span class="chip">Power BI</span>
+          <span class="chip">ETL / Data Prep</span>
+          <span class="chip">Pédagogie data</span>
+          <span class="chip">Project Management</span>
+          <span class="chip">Agile / Scrum</span>
+        </div>
       </div>
     </div>
-
-    <!-- Partie droite : carte "En bref" -->
-    <div class="card">
-      <strong>En bref</strong>
-      <ul class="brief-list">
-        <li><strong>Data storytelling</strong> & visualisation design</li>
-        <li><strong>Conception et modélisation</strong> des datasets</li>
-        <li><strong>Pilotage de projet</strong> data</li>
-      </ul>
-
-      <div class="stack">
-        <span class="chip">Tableau</span>
-        <span class="chip">Power BI</span>
-        <span class="chip">ETL / Data Prep</span>
-        <span class="chip">Pédagogie data & adoption utilisateur</span>
-        <span class="chip">Project Management</span>
-        <span class="chip">Agile / Scrum</span>
-      </div>
-    </div>
-    
-  </div>
-</section>
+  </section>
 
   <!-- PROJETS -->
   <section id="projets">
     <div class="container">
       <h2>Projets</h2>
+
       <div class="grid g-2">
-        <!-- Projet 1 -->
-        <article class="project card">
-          <div>
-            <h3>Dashboard métier — Aeroworld</h3>
-            <p class="meta">Tableau Public • KPI marché aéronautique • Veille & tendance</p>
-          </div>
 
-          <!-- Image fixe du dashboard -->
+        <article class="project card">
+          <h3>Dashboard métier — Aeroworld</h3>
+          <p class="meta">Tableau Public • KPI marché aéronautique • Veille & tendance</p>
           <div class="dashboard-preview">
-            <a href="https://public.tableau.com/views/Dashboarddeveillemtier/Tableaudebord1?:language=fr-FR&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"
-               target="_blank" rel="noopener">
-              <img src="aeroworld_preview.png" alt="Aperçu du dashboard Aeroworld" class="dashboard-img">
+            <a href="https://public.tableau.com/views/Dashboarddeveillemtier/Tableaudebord1"
+               target="_blank">
+              <img src="aeroworld_preview.png" alt="Dashboard Aeroworld" class="dashboard-img">
             </a>
           </div>
-
           <div class="stack">
-            <span class="badge">Tableau</span>
-            <span class="badge">Design KPI</span>
-            <span class="badge">Storytelling</span>
+            <span class="badge">Tableau</span><span class="badge">Design KPI</span><span class="badge">Storytelling</span>
           </div>
-
-          <p class="small">
-            Objectif : cadrer un besoin métier, définir des indicateurs clés et restituer l’information de façon claire et exploitable.
-          </p>
-
-          <div class="cta">
-            <a class="btn secondary" href="https://public.tableau.com/views/Dashboarddeveillemtier/Tableaudebord1?:language=fr-FR&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"
-               target="_blank" rel="noopener">📊 Ouvrir sur Tableau</a>
-          </div>
+          <p class="small">Objectif : cadrer un besoin métier et restituer l’information de façon claire et exploitable.</p>
+          <a class="btn secondary" href="https://public.tableau.com/views/Dashboarddeveillemtier/Tableaudebord1" target="_blank">📊 Ouvrir sur Tableau</a>
         </article>
 
-        <!-- Projet 2 -->
         <article class="project card">
-          <div>
-            <h3>Profil Data Analyst — Compétences & expériences</h3>
-            <p class="meta">Tableau Public • Dashboard narratif • Expérience visuelle interactive</p>
-          </div>
-
-          <!-- Image fixe du dashboard -->
+          <h3>Profil Data Analyst — Compétences & expériences</h3>
+          <p class="meta">Tableau Public • Dashboard narratif • Expérience interactive</p>
           <div class="dashboard-preview">
-            <a href="https://public.tableau.com/views/ProfilDataAnalystConsultant/ProfilDataAnalystConsultant?:language=fr-FR&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"
-               target="_blank" rel="noopener">
-              <img src="profildata_preview.png" alt="Aperçu du dashboard Profil Data Analyst" class="dashboard-img">
+            <a href="https://public.tableau.com/views/ProfilDataAnalystConsultant/ProfilDataAnalystConsultant"
+               target="_blank">
+              <img src="profildata_preview.png" alt="Dashboard Profil Data Analyst" class="dashboard-img">
             </a>
           </div>
-
           <div class="stack">
-            <span class="badge">Tableau</span>
-            <span class="badge">UX Data Design</span>
-            <span class="badge">Interactivité</span>
+            <span class="badge">Tableau</span><span class="badge">UX Design</span><span class="badge">Interactivité</span>
           </div>
-
-          <p class="small">
-            Objectif : synthétiser mes hard/soft skills, expériences et livrables, avec une approche visuelle orientée consulting.
-          </p>
-
-          <div class="cta">
-            <a class="btn secondary" href="https://public.tableau.com/views/ProfilDataAnalystConsultant/ProfilDataAnalystConsultant?:language=fr-FR&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"
-               target="_blank" rel="noopener">📊 Ouvrir sur Tableau</a>
-          </div>
+          <p class="small">Objectif : synthétiser mes hard/soft skills et expériences avec une approche visuelle consulting.</p>
+          <a class="btn secondary" href="https://public.tableau.com/views/ProfilDataAnalystConsultant/ProfilDataAnalystConsultant" target="_blank">📊 Ouvrir sur Tableau</a>
         </article>
+
       </div>
-
-      <!-- Bloc technique : présentation du livrable -->
-      <article class="project card">
-        <h3>Présentation & Livrables — Projet Data</h3>
-        <p class="meta">Loom • PDF • Documentation • Livrables</p>
-        <p>
-          Présentation du dashboard de veille à travers une vidéo Loom, un support PDF de maintenance,
-          et l’ensemble des livrables de préparation.
-        </p>
-        <!-- Vidéo Loom intégrée -->
-        <div class="embed">
-          <iframe src="https://www.loom.com/embed/TON-LIEN-VIDEO"
-                  frameborder="0"
-                  allowfullscreen
-                  title="Vidéo Loom Projet Data">
-          </iframe>
-        </div>
-
-        <!-- Boutons -->
-        <div class="buttons">
-          <a href="https://www.loom.com/share/TON-LIEN-VIDEO"
-             class="btn secondary"
-             target="_blank">🎥 Voir la vidéo Loom</a>
-
-          <a href="https://github.com/TON-USER/ton-projet/raw/main/support.pdf"
-             class="btn secondary"
-             target="_blank">📄 Ouvrir le support PDF</a>
-
-          <a href="https://github.com/TON-USER/ton-projet/releases/latest"
-             class="btn secondary"
-             target="_blank">📦 Télécharger les livrables</a>
-        </div>
-      </article>
     </div>
   </section>
 
   <!-- COMPÉTENCES -->
-<section id="skills">
-  <div class="container">
-    <h2>Compétences</h2>
+  <section id="skills">
+    <div class="container">
+      <h2>Compétences</h2>
 
-    <!-- Grille principale : 3 cartes alignées -->
-    <div class="grid g-3">
+      <div class="grid g-3">
+        <div class="card">
+          <strong>Data & outils</strong>
+          <div class="skills-list compact">
+            <span class="chip">Tableau</span><span class="chip">Power BI</span><span class="chip">KNIME</span>
+            <span class="chip">Python (Data Science)</span><span class="chip">Streamlit</span>
+            <span class="chip">SQLiteStudio</span><span class="chip">Notion</span>
+            <span class="chip">Git/GitHub</span><span class="chip">Python (Machine Learning)</span>
+          </div>
+        </div>
 
-      <!-- Bloc Data & outils -->
-      <div class="card">
-        <strong>Data & outils</strong>
-        <div class="skills-list compact">
-          <span class="chip">Tableau</span>
-          <span class="chip">Power BI</span>
-          <span class="chip">KNIME</span>
-          <span class="chip">Python (Librairies Data Science)</span>
-          <span class="chip">Streamlit</span>
-          <span class="chip">SQLiteStudio</span>
-          <span class="chip">Notion</span>
-          <span class="chip">Git/GitHub</span>
-          <span class="chip">Python (Librairies Machine Learning)</span>
+        <div class="card">
+          <strong>Soft skills</strong>
+          <ul class="icon-list">
+            <li>🧠 Esprit méthodique & adaptatif</li>
+            <li>🔍 Esprit d’analyse & de synthèse</li>
+            <li>👨‍💼 Leadership & consulting</li>
+            <li>🤝 Collaboration & coordination</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <strong>Atouts</strong>
+          <ul class="icon-list inline">
+            <li>📂 Pilotage projet data</li>
+            <li>⚙️ Pipelines analytiques réutilisables</li>
+            <li>🧹 Nettoyage & transformation (ETL)</li>
+            <li>📈 Data storytelling décisionnel</li>
+            <li>💬 Accompagnement & adoption</li>
+          </ul>
         </div>
       </div>
-
-      <!-- Bloc Soft Skills -->
-      <div class="card">
-        <strong>Soft skills</strong>
-        <ul class="icon-list">
-          <li>🧠 Esprit méthodique & adaptatif</li>
-          <li>🔍 Esprit d’analyse & de synthèse</li>
-          <li>👨‍💼 Leadership & consulting</li>
-          <li>🤝 Collaboration & coordination</li>
-        </ul>
-      </div>
-
-      <!-- Bloc Atouts -->
-      <div class="card">
-        <strong>Atouts</strong>
-        <ul class="icon-list inline">
-          <li>📂 Pilotage projet data</li>
-          <li>⚙️ Pipelines analytiques réutilisables</li>
-          <li>🧹 Nettoyage & transformation (ETL)</li>
-          <li>📈 Data storytelling décisionnel</li>
-          <li>💬 Accompagnement & adoption</li>
-        </ul>
-      </div>
-
     </div>
-  </div>
-</section>
+  </section>
 
   <!-- CONTACT -->
   <section id="contact">
     <div class="container">
       <h2>Contact</h2>
       <div class="card">
-        <p class="small">N'hésitez pas à prendre contact avec moi afin d'échanger sur des sujets data</p>
-        <!-- TODO: ton email -->
+        <p class="small">N'hésitez pas à prendre contact avec moi afin d'échanger sur des sujets data.</p>
         <a class="btn primary" href="mailto:anthony.lambry@gmail.com">Me contacter</a>
-        <!-- facultatif : LinkedIn -->
-        <a class="btn" target="_blank" rel="noopener" href="https://www.linkedin.com/in/anthony-lambry-a746306a/">LinkedIn</a>
+        <a class="btn" target="_blank" href="https://www.linkedin.com/in/anthony-lambry-a746306a/">LinkedIn</a>
       </div>
     </div>
   </section>
@@ -491,8 +305,8 @@
 </footer>
 
 <script>
-  const y=document.getElementById('y'); y.textContent=new Date().getFullYear();
-  function toggleMenu(){ document.getElementById('mnav').classList.toggle('open'); }
+  document.getElementById('y').textContent = new Date().getFullYear();
 </script>
+
 </body>
 </html>
