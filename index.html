@@ -97,10 +97,20 @@
       font-weight: 600;
       color: var(--text);
     }
-    .grid{display:grid; gap:16px}
-    .g-2{grid-template-columns:repeat(2,1fr)}
-    .g-3{grid-template-columns:repeat(3,1fr)}
-    @media (max-width:900px){.g-2,.g-3{grid-template-columns:1fr}}
+    .grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .g-3 {
+      grid-template-columns: repeat(3, 1fr); /* 3 colonnes */
+    }
+
+    @media (max-width: 1000px) {
+      .g-3 {
+        grid-template-columns: 1fr; /* empilé sur mobile */
+      }
+    }
 
     /* Project cards */
     .project{display:grid; gap:16px}
@@ -406,53 +416,55 @@
   </section>
 
   <!-- COMPÉTENCES -->
-  <section id="skills">
-    <div class="container">
-      <h2>Compétences</h2>
-      <div class="grid g-3">
+<section id="skills">
+  <div class="container">
+    <h2>Compétences</h2>
 
-        <!-- Bloc Data & outils -->
-        <div class="card">
-          <strong>Data & outils</strong>
-          <div class="skills-list compact">
-            <span class="chip">Tableau</span>
-            <span class="chip">Power BI</span>
-            <span class="chip">KNIME</span>
-            <span class="chip">Python (Librairies Data Science)</span>
-            <span class="chip">Streamlit</span>
-            <span class="chip">SQLiteStudio</span>
-            <span class="chip">Notion</span>
-            <span class="chip">Git/GitHub</span>
-            <span class="chip">Python (Librairies Machine Learning)</span>
-          </div>
+    <!-- Grille principale : 3 cartes alignées -->
+    <div class="grid g-3">
+
+      <!-- Bloc Data & outils -->
+      <div class="card">
+        <strong>Data & outils</strong>
+        <div class="skills-list compact">
+          <span class="chip">Tableau</span>
+          <span class="chip">Power BI</span>
+          <span class="chip">KNIME</span>
+          <span class="chip">Python (Librairies Data Science)</span>
+          <span class="chip">Streamlit</span>
+          <span class="chip">SQLiteStudio</span>
+          <span class="chip">Notion</span>
+          <span class="chip">Git/GitHub</span>
+          <span class="chip">Python (Librairies Machine Learning)</span>
         </div>
-
-        <!-- Bloc Soft Skills -->
-        <div class="card">
-          <strong>Soft skills</strong>
-          <ul class="icon-list">
-            <li><i class="fa-solid fa-brain"></i>🔧 Esprit méthodique & adaptatif</li>
-            <li><i class="fa-solid fa-lightbulb"></i>🔍 Esprit d’analyse & de synthèse</li>
-            <li><i class="fa-solid fa-user-tie"></i>🧑‍💼 Leadership & consulting</li>
-            <li><i class="fa-solid fa-people-group"></i>🤝 Collaboration & coordination</li>
-          </ul>
-        </div>
-
-        <!-- Bloc Atouts -->
-        <div class="card">
-          <strong>Atouts</strong>
-          <ul class="icon-list inline">
-            <li><i class="fa-solid fa-diagram-project"></i>🗂 Pilotage projet data</li>
-            <li><i class="fa-solid fa-gears"></i>⚙️ Pipelines analytiques réutilisables</li>
-            <li><i class="fa-solid fa-broom"></i>🔁 Nettoyage & transformation (ETL)</li>
-            <li><i class="fa-solid fa-chart-line"></i>📈 Data storytelling décisionnel</li>
-            <li><i class="fa-solid fa-users"></i>💬 Accompagnement & adoption</li>
-          </ul>
-        </div>
-
       </div>
+
+      <!-- Bloc Soft Skills -->
+      <div class="card">
+        <strong>Soft skills</strong>
+        <ul class="icon-list">
+          <li>🧠 Esprit méthodique & adaptatif</li>
+          <li>🔍 Esprit d’analyse & de synthèse</li>
+          <li>👨‍💼 Leadership & consulting</li>
+          <li>🤝 Collaboration & coordination</li>
+        </ul>
+      </div>
+
+      <!-- Bloc Atouts -->
+      <div class="card">
+        <strong>Atouts</strong>
+        <ul class="icon-list inline">
+          <li>📂 Pilotage projet data</li>
+          <li>⚙️ Pipelines analytiques réutilisables</li>
+          <li>🧹 Nettoyage & transformation (ETL)</li>
+          <li>📈 Data storytelling décisionnel</li>
+          <li>💬 Accompagnement & adoption</li>
+        </ul>
+      </div>
+
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- CONTACT -->
   <section id="contact">
