@@ -140,9 +140,13 @@
     }
 
     .dashboard-img {
-      width: 100%;
-      height: auto;
+      width: 90%;              /* réduit légèrement la taille */
+      max-width: 800px;        /* limite la largeur max */
+      height: auto;            /* conserve le bon ratio */
+      border-radius: 12px;     /* arrondi doux, optionnel */
       display: block;
+      margin: 0 auto;          /* centre l’image dans la carte */
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* léger relief */
     }
     .buttons {
       display: flex;
