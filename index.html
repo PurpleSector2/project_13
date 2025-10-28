@@ -166,28 +166,28 @@
     .icon-list.inline{display:flex; flex-wrap:wrap; gap:12px 18px}
     .icon-list.inline li{margin:0; white-space:nowrap}
 
-    /* Section Présentation & Livrables */
-    .project.card {
-      width: 100%;                    /* prend toute la largeur du container */
-      margin: 32px 0;                 /* espace au-dessus et en dessous */
+    .project.card.fullwidth {
+      grid-column: 1 / -1;           /* s’étend sur toute la grille (2 colonnes) */
+      width: 100%;
+      margin-top: 24px;
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      padding: 32px 40px;             /* marges internes plus confortables */
+      padding: 32px 36px;
       transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
-    .project.card:hover {
+    .project.card.fullwidth:hover {
       transform: translateY(-3px);
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     }
 
     /* Vidéo Loom intégrée */
-    .project.card .embed {
+    .project.card.fullwidth .embed {
       position: relative;
       width: 100%;
-      padding-top: 40%;               /* ratio plus équilibré pour la largeur totale */
+      padding-top: 42%;
       border-radius: var(--radius-sm);
       overflow: hidden;
       border: 1px solid var(--border);
@@ -196,7 +196,7 @@
       margin-bottom: 24px;
     }
 
-    .project.card .embed iframe {
+    .project.card.fullwidth .embed iframe {
       position: absolute;
       inset: 0;
       width: 100%;
@@ -205,7 +205,7 @@
     }
 
     /* Boutons sous la vidéo Loom */
-    .project.card .buttons {
+    .project.card.fullwidth .buttons {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
@@ -214,14 +214,14 @@
     }
 
     /* Boutons secondaires */
-    .project.card .btn.secondary {
+    .project.card.fullwidth .btn.secondary {
       background: transparent;
       border: 1px solid var(--brand);
       color: var(--brand);
       transition: all 0.25s ease;
     }
 
-    .project.card .btn.secondary:hover {
+    .project.card.fullwidth .btn.secondary:hover {
       background: var(--brand);
       color: #0d1218;
       transform: translateY(-2px);
@@ -323,7 +323,7 @@
   </section>
 
   <!-- Bloc technique : présentation du livrable -->
-  <article class="project card">
+  <article class="project card fullwidth">
     <h3>Présentation & Livrables — Projet Data</h3>
     <p class="meta">🎥 Loom • 📄 PDF • 📦 Livrables</p>
     <p>
@@ -333,26 +333,30 @@
 
     <!-- Vidéo Loom intégrée -->
     <div class="embed">
-      <iframe src="https://www.loom.com/embed/TON-LIEN-VIDEO"
-              frameborder="0"
-              allowfullscreen
-              title="Vidéo Loom Projet Data">
+      <iframe
+        src="https://www.loom.com/embed/TON-LIEN-VIDEO"
+        frameborder="0"
+        allowfullscreen
+        title="Vidéo Loom Projet Data">
       </iframe>
     </div>
 
     <!-- Boutons -->
     <div class="buttons">
-      <a href="https://www.loom.com/share/TON-LIEN-VIDEO"
-         class="btn secondary"
-         target="_blank">🎥 Voir la vidéo Loom</a>
+      <a
+        href="https://www.loom.com/share/TON-LIEN-VIDEO"
+        class="btn secondary"
+        target="_blank">🎥 Voir la vidéo Loom</a>
 
-      <a href="https://github.com/TON-USER/ton-projet/raw/main/support.pdf"
-         class="btn secondary"
-         target="_blank">📄 Ouvrir le support PDF</a>
+      <a
+        href="https://github.com/TON-USER/ton-projet/raw/main/support.pdf"
+        class="btn secondary"
+        target="_blank">📄 Ouvrir le support PDF</a>
 
-      <a href="https://github.com/TON-USER/ton-projet/releases/latest"
-         class="btn secondary"
-         target="_blank">📦 Télécharger les livrables</a>
+      <a
+        href="https://github.com/TON-USER/ton-projet/releases/latest"
+        class="btn secondary"
+        target="_blank">📦 Télécharger les livrables</a>
     </div>
   </article>
   </section>
