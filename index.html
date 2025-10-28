@@ -166,10 +166,11 @@
     .icon-list.inline{display:flex; flex-wrap:wrap; gap:12px 18px}
     .icon-list.inline li{margin:0; white-space:nowrap}
 
+    /* Bloc Présentation & Livrables — largeur ajustée à la taille des 2 cartes */
     .project.card.fullwidth {
-      grid-column: 1 / -1;           /* s’étend sur toute la grille (2 colonnes) */
-      width: 70;
-      margin-top: 24px;
+      width: 92%;                /* ajuste ici : 90% ≈ deux cartes + leur espace */
+      max-width: 1150px;         /* limite la taille max sur grand écran */
+      margin: 24px auto;         /* centre le bloc */
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: var(--radius);
@@ -213,7 +214,6 @@
       margin-top: 20px;
     }
 
-    /* Boutons secondaires */
     .project.card.fullwidth .btn.secondary {
       background: transparent;
       border: 1px solid var(--brand);
