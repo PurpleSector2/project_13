@@ -167,15 +167,32 @@
     .icon-list.inline li{margin:0; white-space:nowrap}
 
     /* Section Présentation & Livrables */
+    .project.card {
+      max-width: 520px;              /* même largeur que les dashboards */
+      margin: 32px auto;             /* centre et espace le bloc */
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 24px 28px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .project.card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Vidéo Loom intégrée */
     .project.card .embed {
       position: relative;
       width: 100%;
-      padding-top: 45%; /* moins haut que les dashboards */
+      padding-top: 42%;              /* ratio plus compact */
       border-radius: var(--radius-sm);
       overflow: hidden;
       border: 1px solid var(--border);
       box-shadow: var(--shadow);
-      margin-top: 16px;
+      margin-top: 18px;
       margin-bottom: 20px;
     }
 
@@ -190,11 +207,13 @@
     /* Boutons sous la vidéo Loom */
     .project.card .buttons {
       display: flex;
+      justify-content: center;
       flex-wrap: wrap;
       gap: 12px;
-      margin-top: 20px;
+      margin-top: 16px;
     }
 
+    /* Boutons secondaires */
     .project.card .btn.secondary {
       background: transparent;
       border: 1px solid var(--brand);
