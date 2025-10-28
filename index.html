@@ -168,13 +168,13 @@
 
     /* Section Présentation & Livrables */
     .project.card {
-      max-width: 520px;              /* même largeur que les dashboards */
-      margin: 32px auto;             /* centre et espace le bloc */
+      width: 100%;                    /* prend toute la largeur du container */
+      margin: 32px 0;                 /* espace au-dessus et en dessous */
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      padding: 24px 28px;
+      padding: 32px 40px;             /* marges internes plus confortables */
       transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
@@ -187,13 +187,13 @@
     .project.card .embed {
       position: relative;
       width: 100%;
-      padding-top: 42%;              /* ratio plus compact */
+      padding-top: 40%;               /* ratio plus équilibré pour la largeur totale */
       border-radius: var(--radius-sm);
       overflow: hidden;
       border: 1px solid var(--border);
       box-shadow: var(--shadow);
-      margin-top: 18px;
-      margin-bottom: 20px;
+      margin-top: 20px;
+      margin-bottom: 24px;
     }
 
     .project.card .embed iframe {
@@ -209,8 +209,8 @@
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 16px;
+      gap: 14px;
+      margin-top: 20px;
     }
 
     /* Boutons secondaires */
