@@ -110,6 +110,27 @@
     }
     .card:hover{transform:translateY(-3px); box-shadow:0 10px 20px rgba(0,0,0,0.1)}
 
+    .card .stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 16px; /* espace vertical + horizontal plus généreux */
+      margin-top: 18px;
+    }
+
+    .card .chip {
+      padding: 0.55rem 0.9rem;
+      font-size: 0.95rem;
+      border-radius: 999px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      transition: all 0.25s ease;
+    }
+
+    .card .chip:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    }
+
     /* GRILLES */
     .grid{display:grid; gap:28px}
     .g-2{grid-template-columns:repeat(2,1fr); align-items:start}
@@ -219,9 +240,6 @@
               <img src="aeroworld_preview.png" alt="Dashboard Aeroworld" class="dashboard-img">
             </a>
           </div>
-          <div class="stack">
-            <span class="badge">Tableau</span><span class="badge">Design KPI</span><span class="badge">Storytelling</span>
-          </div>
           <p class="small">Objectif : cadrer un besoin métier et restituer l’information de façon claire et exploitable.</p>
           <a class="btn secondary" href="https://public.tableau.com/views/Dashboarddeveillemtier/Tableaudebord1" target="_blank">📊 Ouvrir sur Tableau</a>
         </article>
@@ -234,9 +252,6 @@
                target="_blank">
               <img src="profildata_preview.png" alt="Dashboard Profil Data Analyst" class="dashboard-img">
             </a>
-          </div>
-          <div class="stack">
-            <span class="badge">Tableau</span><span class="badge">UX Design</span><span class="badge">Interactivité</span>
           </div>
           <p class="small">Objectif : synthétiser mes hard/soft skills et expériences avec une approche visuelle consulting.</p>
           <a class="btn secondary" href="https://public.tableau.com/views/ProfilDataAnalystConsultant/ProfilDataAnalystConsultant" target="_blank">📊 Ouvrir sur Tableau</a>
